@@ -1,1 +1,34 @@
 /* You can add global styles to this file, and also import other style files */
+:root {
+      --cream:   #F8F4EE;
+      --cream-2: #EDE8DF;
+      --green-dark:  #254A22;
+      --green-mid:   #376128;
+      --green-light: #467A2A;
+      --orange:  #C75B2A;
+      --orange-light: #D9724A;
+      --carbon:  #1A1A18;
+      --carbon-60: rgba(26,26,24,.6);
+      --carbon-30: rgba(26,26,24,.3);
+      --white:   #FFFFFF;
+
+      --r-card:  16px;
+      --r-btn:   999px;
+      --shadow-card: 0 4px 24px rgba(0,0,0,.10);
+      --shadow-hover: 0 12px 40px rgba(0,0,0,.18);
+
+      --font-display: 'Playfair Display', Georgia, serif;
+      --font-body:    'DM Sans', system-ui, sans-serif;
+      --font-mono:    'DM Mono', 'Courier New', monospace;
+    }
+
+    /* ── RESET & BASE ───────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-body);
+      background: var(--cream);
+      color: var(--carbon);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
