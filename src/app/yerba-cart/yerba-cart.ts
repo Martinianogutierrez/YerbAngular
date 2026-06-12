@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostBinding } from '@angular/core';
 
 @Component({
   selector: 'app-yerba-cart',
@@ -6,4 +6,6 @@ import { Component } from '@angular/core';
   templateUrl: './yerba-cart.html',
   styleUrl: './yerba-cart.scss',
 })
-export class YerbaCart {}
+export class YerbaCart {
+   @HostBinding('class') hostClass = 'shop-column';
+}

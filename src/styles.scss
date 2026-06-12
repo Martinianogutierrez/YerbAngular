@@ -32,3 +32,10 @@
       min-height: 100vh;
       overflow-x: hidden;
     }
+
+    /* ── MAIN LAYOUT ────────────────────────────── */
+    main {
+      display: flex;
+      min-height: 90vh;
+      overflow: visible;
+    }
