@@ -1,4 +1,4 @@
-import { Component, HostBinding } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-yerba-about',
@@ -6,6 +6,4 @@ import { Component, HostBinding } from '@angular/core';
   templateUrl: './yerba-about.html',
   styleUrl: './yerba-about.scss',
 })
-export class YerbaAbout {
-   @HostBinding('class') hostClass = 'shop-column';
-}
+export class YerbaAbout {}
