@@ -22,46 +22,11 @@
 </div>
 
 <div class="carousel-wrapper" #carouselWrapper>
-    <div
-    class="carousel-track"
-    #carouselTrack
-    [style.transform]="trackTransform()"
-    [style.--visible-cards]="visibleCards()"
-    >
+    <div class="carousel-track" #carouselTrack [style.transform]="trackTransform()" [style.--visible-cards]="visibleCards()">
 
-    @for (yerba of yerbas; track yerba.id) {
-        <div class="yerba-card">
-            <div class="card-top">
-                <div class="card-tags">
-                    @if (yerba.limitedEdition) {<span class="tag tag-limited">★ Limited</span>}
-                    @if (yerba.hasStick) {<span class="tag tag-palo">Con palo</span>}
-                </div>
-            </div>
-            <div class="card-body">
-                <div>
-                <div class="card-name">{{ yerba.name }}</div>
-                <div class="dust-row">
-                        <div class="dust-label">
-                    <span>% de polvo</span>
-                    <span>{{ yerba.dustPercentage }}%</span>
-                        </div>
-                        <div class="dust-bar-bg">
-                    <div class="dust-bar-fill" [style.width.%]="yerba.dustPercentage"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="card-action-row">
-                    <div>
-                    <div class="card-price">${{yerba.price}}</div>
-                    <div class="card-price-unit">por {{ yerba.weight }} g</div>
-                    </div>
-                <button class="add-btn" type="button" aria-label="Agregar al carrito">
-                        <svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-                    </button>
-                </div>
-            </div>
-        </div>
-    }
+        @for (yerba of yerbas; track yerba.id) {
+            <app-yerba-card [yerba]="yerba"></app-yerba-card>
+        }
 
     </div>
 </div>
@@ -80,5 +45,4 @@
     ></button>
     }
 </div>
-
 
