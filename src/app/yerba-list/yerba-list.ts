@@ -24,17 +24,24 @@ import { YerbaCard } from '../yerba-card/yerba-card';
   }
 })
 export class YerbaList implements AfterViewInit {
+
+
+  onStockChange($event: number) {
+    console.log('Stock changed:', $event);
+  }
+
+
   private readonly platformId = inject(PLATFORM_ID);
   private readonly isBrowser = isPlatformBrowser(this.platformId);
 
   private readonly carouselWrapper = viewChild<ElementRef<HTMLElement>>('carouselWrapper');
   private readonly carouselTrack = viewChild<ElementRef<HTMLElement>>('carouselTrack');
 
-private readonly cardsPerSlide = 3;
-private readonly slideStep = 3;
+  private readonly cardsPerSlide = 3;
+  private readonly slideStep = 3;
 
   readonly currentSlide = signal(0);
-readonly visibleCards = signal(this.cardsPerSlide);
+  readonly visibleCards = signal(this.cardsPerSlide);
 
   private readonly cardStepPx = signal(0);
 

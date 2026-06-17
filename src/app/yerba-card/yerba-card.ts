@@ -1,4 +1,4 @@
-import { Component, HostBinding, Input } from '@angular/core';
+import { Component, HostBinding, Input, Output, EventEmitter } from '@angular/core';
 import { Yerba } from '../yerba-list/Yerba';
 
 
@@ -14,8 +14,12 @@ export class YerbaCard {
   @Input()
   yerba!: Yerba;
 
-  addYerbaToCart(yerba: Yerba) {
-    
+  @Output()
+  stockChange: EventEmitter<number> = new EventEmitter<number>();
+
+  addYerba() {
+    this.yerba.stock--;
+    this.stockChange.emit(this.yerba.stock);
   }
 
 }
