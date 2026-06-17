@@ -1,0 +1,20 @@
+
+<div class="cart-header">
+    <h2>Tu Carrito</h2>
+    <p>{{ yerbaCartList.length }} ITEMS</p>
+</div>
+
+<div class="cart-items">
+    @for (yerba of yerbaCartList; track yerba.id) {
+        <app-cart-card-yerba [yerba]="yerba" />
+    }
+</div>
+
+    <div class="cart-footer">
+      <div class="cart-total-row">
+        <span class="cart-total-label">Total</span>
+        <span class="cart-total-amount">${{ getTotal() }}</span>
+      </div>
+      <button class="cart-checkout-btn">Finalizar Compra →</button>
+    </div>
+

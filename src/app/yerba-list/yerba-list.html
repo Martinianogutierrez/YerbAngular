@@ -25,7 +25,7 @@
     <div class="carousel-track" #carouselTrack [style.transform]="trackTransform()" [style.--visible-cards]="visibleCards()">
 
         @for (yerba of yerbas; track yerba.id) {
-            <app-yerba-card [yerba]="yerba" (stockChange)="onStockChange($event)"></app-yerba-card>
+            <app-yerba-card [yerba]="yerba" (quantityChange)="onQuantityChange($event)"></app-yerba-card>
         }
 
     </div>

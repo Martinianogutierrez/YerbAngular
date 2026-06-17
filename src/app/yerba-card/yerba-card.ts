@@ -15,11 +15,13 @@ export class YerbaCard {
   yerba!: Yerba;
 
   @Output()
-  stockChange: EventEmitter<number> = new EventEmitter<number>();
+  quantityChange: EventEmitter<number> = new EventEmitter<number>();
 
   addYerba() {
-    this.yerba.stock--;
-    this.stockChange.emit(this.yerba.stock);
+    if (this.yerba.quantity < this.yerba.stock) {
+      this.yerba.quantity++;
+      this.quantityChange.emit(this.yerba.quantity);
+    }
   }
 
 }

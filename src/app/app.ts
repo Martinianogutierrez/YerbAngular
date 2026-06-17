@@ -3,11 +3,11 @@ import { RouterOutlet } from '@angular/router';
 import { NavMenu } from "./nav-menu/nav-menu";
 import { FooterYerba } from "./footer-yerba/footer-yerba";
 import { YerbaList } from "./yerba-list/yerba-list";
-import { YerbaCart } from "./yerba-cart/yerba-cart";
+import { CartYerba } from "./cart-yerba/cart-yerba";
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, FooterYerba, NavMenu, YerbaList, YerbaCart],
+  imports: [RouterOutlet, FooterYerba, NavMenu, YerbaList, CartYerba],
   templateUrl: './app.html',
   styleUrl:'./app.scss'
 })
