@@ -18,7 +18,6 @@ export class YerbaList implements AfterViewInit {
 
   onQuantityChange(yerbaAgregada: Yerba) {
       this.addYerbaToCart(yerbaAgregada);
-      console.log("quantity " + yerbaAgregada.quantity + " stock " + yerbaAgregada.stock);
   }
 
   addYerbaToCart(yerba: Yerba) {

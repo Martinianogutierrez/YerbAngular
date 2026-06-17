@@ -21,7 +21,6 @@ export class YerbaCard {
     if (this.yerba.quantity < this.yerba.stock) {
       this.yerba.quantity++;
       this.quantityChange.emit(this.yerba);
-      console.log("se envio a la lista completa (paso la card)");
     }
   }
 
