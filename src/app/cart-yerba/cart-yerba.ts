@@ -2,6 +2,7 @@ import { Component, HostBinding } from '@angular/core';
 import { CartCardYerba } from '../cart-card-yerba/cart-card-yerba';
 import { Yerba } from '../yerba-list/Yerba';
 import { YerbaCartService } from '../service-yerba-cart/yerba-cart-service';
+import { NgClass } from "../../../node_modules/@angular/common/types/_common_module-chunk";
 
 @Component({
   selector: 'app-cart-yerba',
@@ -17,8 +18,12 @@ export class CartYerba {
     cartService.cartlist.subscribe(cartItem => this.yerbaCartList = cartItem);
   }
 
-  getTotal() {
+  getTotalPrice() {
     return this.yerbaCartList.reduce((total, item) => total + (item.price * item.quantity), 0);
+  }
+
+  getTotalQuantity() {
+    return this.yerbaCartList.reduce((total, item) => total + item.quantity, 0);
   }
 
 }

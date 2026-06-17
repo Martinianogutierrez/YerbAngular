@@ -1,7 +1,7 @@
 
 <div class="cart-header">
     <h2>Tu Carrito</h2>
-    <p>{{ yerbaCartList.length }} ITEMS</p>
+    <p> {{getTotalQuantity()}} ITEMS</p>
 </div>
 
 <div class="cart-items">
@@ -13,7 +13,7 @@
     <div class="cart-footer">
       <div class="cart-total-row">
         <span class="cart-total-label">Total</span>
-        <span class="cart-total-amount">${{ getTotal() }}</span>
+        <span class="cart-total-amount">${{ getTotalPrice() }}</span>
       </div>
       <button class="cart-checkout-btn">Finalizar Compra →</button>
     </div>

@@ -1,15 +1,5 @@
 import { isPlatformBrowser } from '@angular/common';
-import {
-  AfterViewInit,
-  ChangeDetectionStrategy,
-  Component,
-  ElementRef,
-  PLATFORM_ID,
-  computed,
-  inject,
-  signal,
-  viewChild,
-} from '@angular/core';
+import { AfterViewInit, ChangeDetectionStrategy, Component, ElementRef, PLATFORM_ID, computed, inject, signal, viewChild } from '@angular/core';
 import { Yerba } from './Yerba';
 import { YerbaCard } from '../yerba-card/yerba-card';
 import { YerbaCartService } from '../service-yerba-cart/yerba-cart-service';
@@ -26,15 +16,18 @@ import { YerbaCartService } from '../service-yerba-cart/yerba-cart-service';
 })
 export class YerbaList implements AfterViewInit {
 
-  onQuantityChange($event: number) {
-    console.log('Quantity changed:', $event);
+  onQuantityChange(yerbaAgregada: Yerba) {
+      this.addYerbaToCart(yerbaAgregada);
+      console.log("quantity " + yerbaAgregada.quantity + " stock " + yerbaAgregada.stock);
+  }
+
+  addYerbaToCart(yerba: Yerba) {
+    if (yerba.quantity <= yerba.stock) {
+      this.cartService.addToCart(yerba);
+    }
   }
 
   cartService: YerbaCartService = inject(YerbaCartService);
-
-  addToCart(yerba: Yerba) {
-    this.cartService.addToCart(yerba);
-  }
 
   yerbas: Yerba[] = [
   {
@@ -56,7 +49,7 @@ export class YerbaList implements AfterViewInit {
     "limitedEdition": false,
     "hasStick": true,
     "dustPercentage": 10,
-    "stock": 0,
+    "stock": 3,
     "quantity": 0
   },
   {
@@ -78,7 +71,7 @@ export class YerbaList implements AfterViewInit {
     "limitedEdition": false,
     "hasStick": true,
     "dustPercentage": 0,
-    "stock": 0,
+    "stock": 3,
     "quantity": 0
   },
   {
@@ -100,7 +93,7 @@ export class YerbaList implements AfterViewInit {
     "limitedEdition": false,
     "hasStick": true,
     "dustPercentage": 15,
-    "stock": 0,
+    "stock": 3,
     "quantity": 0
   },
   {
@@ -133,7 +126,7 @@ export class YerbaList implements AfterViewInit {
     "limitedEdition": false,
     "hasStick": false,
     "dustPercentage": 5,
-    "stock": 0,
+    "stock": 3,
     "quantity": 0
   },
   {

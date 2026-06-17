@@ -17,6 +17,7 @@ export class YerbaCartService {
     } else {
       this._cartlist.push({... yerba});
     }
+    console.log(this._cartlist);
   }
 
 }
