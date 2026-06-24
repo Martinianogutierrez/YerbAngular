@@ -1,5 +1,5 @@
 
-<div class="card-top">
+<div class="card-top" [style.background-image]="yerba.image ? 'url(' + yerba.image + ')' : ''" [style.background-size]="'cover'" [style.background-position]="'center'" [style.background-repeat]="'no-repeat'">
     <div class="card-tags">
         @if (yerba.limitedEdition) {<span class="tag tag-limited">★ Limited</span>}
         @if (yerba.hasStick) {<span class="tag tag-palo">Con palo</span>}

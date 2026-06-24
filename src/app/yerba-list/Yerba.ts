@@ -7,5 +7,6 @@ export interface Yerba {
     hasStick: boolean;
     dustPercentage: number;
     stock: number;
+    image: string;
     quantity: number;
 }

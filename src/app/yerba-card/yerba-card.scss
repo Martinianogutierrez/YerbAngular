@@ -1,12 +1,17 @@
-/* Card top — green area */
+/* Card top — green area or yerba image */
 .card-top {
-  background: var(--green-dark);
+  // background-color: var(--green-dark);
   flex: 0 0 52%;
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  /* blend image with the green base to preserve tint */
+  background-blend-mode: multiply;
 }
 /* Texture overlay */
 .card-top::before {

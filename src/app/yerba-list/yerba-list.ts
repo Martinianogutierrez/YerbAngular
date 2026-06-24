@@ -3,6 +3,7 @@ import { AfterViewInit, ChangeDetectionStrategy, Component, ElementRef, PLATFORM
 import { Yerba } from './Yerba';
 import { YerbaCard } from '../yerba-card/yerba-card';
 import { YerbaCartService } from '../service-yerba-cart/yerba-cart-service';
+import { YerbaDataService } from '../service-yerba-data/yerba-data-service';
 
 @Component({
   selector: 'app-yerba-list',
@@ -16,6 +17,11 @@ import { YerbaCartService } from '../service-yerba-cart/yerba-cart-service';
 })
 export class YerbaList implements AfterViewInit {
 
+  constructor(private cartService: YerbaCartService,
+              private yerbaDataService: YerbaDataService) {}
+
+  yerbas: Yerba[] = [];
+
   onQuantityChange(yerbaAgregada: Yerba) {
       this.addYerbaToCart(yerbaAgregada);
   }
@@ -26,120 +32,11 @@ export class YerbaList implements AfterViewInit {
     }
   }
 
-  cartService: YerbaCartService = inject(YerbaCartService);
-
-  yerbas: Yerba[] = [
-  {
-    "id": 1,
-    "name": "Taragüi 1kg",
-    "weight": 1000,
-    "price": 4850,
-    "limitedEdition": false,
-    "hasStick": true,
-    "dustPercentage": 10,
-    "stock": 2,
-    "quantity": 0
-  },
-  {
-    "id": 2,
-    "name": "Taragüi 750g",
-    "weight": 750,
-    "price": 3690,
-    "limitedEdition": false,
-    "hasStick": true,
-    "dustPercentage": 10,
-    "stock": 3,
-    "quantity": 0
-  },
-  {
-    "id": 3,
-    "name": "Amanda 1kg",
-    "weight": 1000,
-    "price": 4600,
-    "limitedEdition": false,
-    "hasStick": true,
-    "dustPercentage": 0,
-    "stock": 5,
-    "quantity": 0
-  },
-  {
-    "id": 4,
-    "name": "Amanda 750g",
-    "weight": 750,
-    "price": 3500,
-    "limitedEdition": false,
-    "hasStick": true,
-    "dustPercentage": 0,
-    "stock": 3,
-    "quantity": 0
-  },
-  {
-    "id": 5,
-    "name": "La Merced 1kg",
-    "weight": 1000,
-    "price": 5200,
-    "limitedEdition": false,
-    "hasStick": true,
-    "dustPercentage": 15,
-    "stock": 3,
-    "quantity": 0
-  },
-  {
-    "id": 6,
-    "name": "La Merced 750g",
-    "weight": 750,
-    "price": 3950,
-    "limitedEdition": false,
-    "hasStick": true,
-    "dustPercentage": 15,
-    "stock": 3,
-    "quantity": 0
-  },
-  {
-    "id": 7,
-    "name": "Rosamonte 1kg",
-    "weight": 1000,
-    "price": 5100,
-    "limitedEdition": false,
-    "hasStick": true,
-    "dustPercentage": 20,
-    "stock": 7,
-    "quantity": 0
-  },
-  {
-    "id": 8,
-    "name": "Rosamonte 750g",
-    "weight": 750,
-    "price": 3870,
-    "limitedEdition": false,
-    "hasStick": true,
-    "dustPercentage": 20,
-    "stock": 4,
-    "quantity": 0
-  },
-  {
-    "id": 9,
-    "name": "Cruz de Malta 1kg",
-    "weight": 1000,
-    "price": 4750,
-    "limitedEdition": false,
-    "hasStick": false,
-    "dustPercentage": 5,
-    "stock": 3,
-    "quantity": 0
-  },
-  {
-    "id": 10,
-    "name": "Cruz de Malta 750g",
-    "weight": 750,
-    "price": 3610,
-    "limitedEdition": false,
-    "hasStick": false,
-    "dustPercentage": 5,
-    "stock": 6,
-    "quantity": 0
+  ngOnInit(): void {
+    this.yerbaDataService.getAll().subscribe((yerbasData) => {this.yerbas = yerbasData;});
   }
-  ];
+
+
 
   // Logica de carrusel y division de slides de cards
   private readonly platformId = inject(PLATFORM_ID);
