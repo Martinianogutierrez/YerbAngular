@@ -56,15 +56,12 @@
   transition: color .2s, background .2s;
   flex-shrink: 0;
 }
-.cart-action-btn--decrease {
-  color: var(--carbon-30);
-}
+
 .cart-action-btn--decrease:hover {
   color: #1f57cf;
   background: rgba(47, 111, 237, .08);
 }
 .cart-action-btn--remove {
-  color: var(--carbon-30);
   padding: 4px;
   border-radius: 6px;
   transition: color .2s, background .2s;
