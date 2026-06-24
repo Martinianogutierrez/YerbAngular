@@ -1,6 +1,5 @@
-/* Card top — green area or yerba image */
+
 .card-top {
-  // background-color: var(--green-dark);
   flex: 0 0 52%;
   position: relative;
   display: flex;
@@ -10,8 +9,8 @@
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  /* blend image with the green base to preserve tint */
   background-blend-mode: multiply;
+  
 }
 /* Texture overlay */
 .card-top::before {
@@ -23,6 +22,8 @@
     radial-gradient(circle at 70% 30%, rgba(255,255,255,.03) 0%, transparent 50%);
 }
 
+// " [style.background-size]="'cover'" [style.background-position]="'center'" [style.background-repeat]="'no-repeat'
+
 /* Illustration placeholder — yerba leaf motif in SVG */
 .card-illustration {
   position: relative;
@@ -31,7 +32,7 @@
   align-items: center;
   justify-content: center;
 }
-.card-illustration svg { width: 80px; height: 80px; }
+
 
 /* Tags row */
 .card-tags {

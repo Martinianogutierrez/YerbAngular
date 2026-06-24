@@ -3,12 +3,15 @@
 .cart-item-icon {
   width: 42px;
   height: 42px;
-  background: var(--green-dark);
   border-radius: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-shrink: 0;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-blend-mode: multiply;
 }
 .cart-item {
   position: relative;
