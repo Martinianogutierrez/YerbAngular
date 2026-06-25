@@ -2,7 +2,6 @@ import { Component, HostBinding } from '@angular/core';
 import { CartCardYerba } from '../cart-card-yerba/cart-card-yerba';
 import { Yerba } from '../yerba-list/Yerba';
 import { YerbaCartService } from '../service-yerba-cart/yerba-cart-service';
-import { NgClass } from "../../../node_modules/@angular/common/types/_common_module-chunk";
 
 @Component({
   selector: 'app-cart-yerba',
@@ -11,11 +10,25 @@ import { NgClass } from "../../../node_modules/@angular/common/types/_common_mod
   styleUrl: './cart-yerba.scss',
 })
 export class CartYerba {
+mostrar() {
+console.log("se muestran las yerbas")
+}
   @HostBinding('class') hostClass = 'shop-column';
 
   yerbaCartList: Yerba[] = [];
+
   constructor(private cartService: YerbaCartService) {
-    cartService.cartlist.subscribe(cartItem => this.yerbaCartList = cartItem);
+    this.cartService.cartlist.subscribe(cartItem => this.yerbaCartList = cartItem);
+  }
+
+  onYerbaDecreased(decreasedYerba: Yerba) {
+    console.log('Decreasing yerba in cart:', decreasedYerba);
+    this.cartService.decreaseFromCart(decreasedYerba);
+  }
+ 
+  onYerbaRemoved(removedYerba: Yerba) {
+    console.log('Removing yerba from cart:', removedYerba);
+    this.cartService.removeFromCart(removedYerba);
   }
 
   getTotalPrice() {

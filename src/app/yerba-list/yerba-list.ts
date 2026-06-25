@@ -16,13 +16,17 @@ import { YerbaDataService } from '../service-yerba-data/yerba-data-service';
   }
 })
 export class YerbaList implements AfterViewInit {
-
-  constructor(private cartService: YerbaCartService,
-              private yerbaDataService: YerbaDataService) {}
-
+  
   yerbas: Yerba[] = [];
+  liveCart: Yerba[] = [];
+  constructor(private cartService: YerbaCartService, private yerbaDataService: YerbaDataService) {}
+
+  ngOnInit(): void {
+    this.yerbaDataService.getAll().subscribe((yerbasData) => {this.yerbas = yerbasData;});
+  }
 
   onQuantityChange(yerbaAgregada: Yerba) {
+      yerbaAgregada.quantity++;
       this.addYerbaToCart(yerbaAgregada);
   }
 
@@ -32,13 +36,14 @@ export class YerbaList implements AfterViewInit {
     }
   }
 
-  ngOnInit(): void {
-    this.yerbaDataService.getAll().subscribe((yerbasData) => {this.yerbas = yerbasData;});
-  }
 
 
 
-  // Logica de carrusel y division de slides de cards
+
+
+
+
+  // Logica de carrusel y division de slides para las cards de yerbas
   private readonly platformId = inject(PLATFORM_ID);
   private readonly isBrowser = isPlatformBrowser(this.platformId);
 

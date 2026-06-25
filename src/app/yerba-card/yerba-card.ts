@@ -19,7 +19,6 @@ export class YerbaCard {
 
   addYerba() {
     if (this.yerba.quantity < this.yerba.stock) {
-      this.yerba.quantity++;
       this.quantityChange.emit(this.yerba);
     }
   }

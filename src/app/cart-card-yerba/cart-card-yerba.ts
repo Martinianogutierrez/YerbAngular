@@ -1,6 +1,5 @@
-import { Component, HostBinding, Input } from '@angular/core';
+import { Component, HostBinding, Input, Output, EventEmitter } from '@angular/core';
 import { Yerba } from '../yerba-list/Yerba';
-import { YerbaCartService } from '../service-yerba-cart/yerba-cart-service';
 
 @Component({
   selector: 'app-cart-card-yerba',
@@ -11,16 +10,21 @@ import { YerbaCartService } from '../service-yerba-cart/yerba-cart-service';
 export class CartCardYerba {
   @HostBinding('class') hostClass = 'cart-item';
 
-  @Input()
-  yerba!: Yerba;
+  @Input() yerba!: Yerba;
+  
+  @Output() yerbaDecreased: EventEmitter<Yerba> = new EventEmitter<Yerba>();
 
-  constructor(private cartService: YerbaCartService) {}
+  @Output() yerbaRemoved: EventEmitter<Yerba> = new EventEmitter<Yerba>();
+
+  constructor() {}
 
   decreaseItem() {
-    this.cartService.decreaseFromCart(this.yerba);
+    console.log('Decreasing item:', this.yerba);
+    this.yerbaDecreased.emit(this.yerba);
   }
 
   removeItem() {
-    this.cartService.removeFromCart(this.yerba);
+    console.log('Removing item:', this.yerba);
+    this.yerbaRemoved.emit(this.yerba);
   }
 }
