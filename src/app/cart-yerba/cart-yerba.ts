@@ -10,9 +10,6 @@ import { YerbaCartService } from '../service-yerba-cart/yerba-cart-service';
   styleUrl: './cart-yerba.scss',
 })
 export class CartYerba {
-mostrar() {
-console.log("se muestran las yerbas")
-}
   @HostBinding('class') hostClass = 'shop-column';
 
   yerbaCartList: Yerba[] = [];
@@ -22,12 +19,10 @@ console.log("se muestran las yerbas")
   }
 
   onYerbaDecreased(decreasedYerba: Yerba) {
-    console.log('Decreasing yerba in cart:', decreasedYerba);
     this.cartService.decreaseFromCart(decreasedYerba);
   }
  
   onYerbaRemoved(removedYerba: Yerba) {
-    console.log('Removing yerba from cart:', removedYerba);
     this.cartService.removeFromCart(removedYerba);
   }
 

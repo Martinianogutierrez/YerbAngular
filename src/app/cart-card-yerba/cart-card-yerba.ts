@@ -19,12 +19,10 @@ export class CartCardYerba {
   constructor() {}
 
   decreaseItem() {
-    console.log('Decreasing item:', this.yerba);
     this.yerbaDecreased.emit(this.yerba);
   }
 
   removeItem() {
-    console.log('Removing item:', this.yerba);
     this.yerbaRemoved.emit(this.yerba);
   }
 }

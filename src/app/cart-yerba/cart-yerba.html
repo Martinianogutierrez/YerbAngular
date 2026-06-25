@@ -6,7 +6,6 @@
 
 <div class="cart-items">
     @for (yerba of yerbaCartList; track yerba.id) {
-        <!-- {{mostrar()}} -->
         <app-cart-card-yerba [yerba]="yerba" (yerbaDecreased)="onYerbaDecreased($event)" (yerbaRemoved)="onYerbaRemoved($event)" />
     }
 </div>

@@ -11,14 +11,15 @@ import { Yerba } from '../yerba-list/Yerba';
 export class YerbaCard {
   @HostBinding('class') hostClass = 'yerba-card';
   
-  @Input()
-  yerba!: Yerba;
+  @Input() yerba!: Yerba;
 
-  @Output()
-  quantityChange: EventEmitter<Yerba> = new EventEmitter<Yerba>();
+
+  @Input() avaliableStock!: number;
+
+  @Output() quantityChange: EventEmitter<Yerba> = new EventEmitter<Yerba>();
 
   addYerba() {
-    if (this.yerba.quantity < this.yerba.stock) {
+    if (this.avaliableStock > 0) {
       this.quantityChange.emit(this.yerba);
     }
   }

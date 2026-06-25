@@ -18,16 +18,16 @@
             </div>
         </div>
     </div>
-    <div class="stock-row" [class.out-of-stock]="yerba.stock - yerba.quantity <= 0">
+    <div class="stock-row" [class.out-of-stock]="avaliableStock <= 0">
         <span class="stock-label">Stock</span>
-        <span class="stock-value">{{ yerba.stock - yerba.quantity }}</span>
+        <span class="stock-value">{{ avaliableStock }}</span>
     </div>
     <div class="card-action-row">
         <div>
         <div class="card-price">${{yerba.price}}</div>
         <div class="card-price-unit">por {{ yerba.weight }} g</div>
         </div>
-    <button (click)="addYerba()" class="add-btn " type="button" aria-label="Agregar al carrito" [disabled]="yerba.quantity >= yerba.stock">
+    <button (click)="addYerba()" class="add-btn " type="button" aria-label="Agregar al carrito" [disabled]="avaliableStock <= 0">
             <svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
         </button>
     </div>

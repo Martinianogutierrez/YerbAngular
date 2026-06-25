@@ -18,27 +18,28 @@ import { YerbaDataService } from '../service-yerba-data/yerba-data-service';
 export class YerbaList implements AfterViewInit {
   
   yerbas: Yerba[] = [];
-  liveCart: Yerba[] = [];
-  constructor(private cartService: YerbaCartService, private yerbaDataService: YerbaDataService) {}
+  constructor(private cartService: YerbaCartService, private yerbaDataService: YerbaDataService) { }
 
   ngOnInit(): void {
-    this.yerbaDataService.getAll().subscribe((yerbasData) => {this.yerbas = yerbasData;});
+    this.yerbaDataService.yerbasData.subscribe((yerbasData) => {this.yerbas = yerbasData;});
   }
 
   onQuantityChange(yerbaAgregada: Yerba) {
-      yerbaAgregada.quantity++;
       this.addYerbaToCart(yerbaAgregada);
   }
 
   addYerbaToCart(yerba: Yerba) {
-    if (yerba.quantity <= yerba.stock) {
-      this.cartService.addToCart(yerba);
+    if(!yerba) { return; }
+    let avaliableStock: number = this.getAvaliableStock(yerba);
+    if (avaliableStock > 0) {
+      this.yerbaDataService.addYerbaToCart(yerba);
     }
   }
 
-
-
-
+  getAvaliableStock(yerba: Yerba): number {
+    let quantityInCart: number = this.cartService.getQuantity(yerba.id)();
+    return yerba.stock - quantityInCart;
+  }
 
 
 
