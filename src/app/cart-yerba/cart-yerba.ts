@@ -1,4 +1,4 @@
-import { Component, HostBinding } from '@angular/core';
+import { Component, HostBinding, Output, EventEmitter } from '@angular/core';
 import { CartCardYerba } from '../cart-card-yerba/cart-card-yerba';
 import { Yerba } from '../yerba-list/Yerba';
 import { YerbaCartService } from '../service-yerba-cart/yerba-cart-service';

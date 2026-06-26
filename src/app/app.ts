@@ -13,5 +13,11 @@ import { CartYerba } from "./cart-yerba/cart-yerba";
 })
 export class App {
   protected readonly title = 'YerbAngular';
+  
+  cartOpen = true;
+
+  cartOpenToggle(): void {
+    this.cartOpen = !this.cartOpen;
+  }
 
 }
