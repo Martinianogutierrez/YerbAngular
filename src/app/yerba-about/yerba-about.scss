@@ -67,11 +67,6 @@
     to   { transform: translateX(100%); }
   }
 
-  @keyframes typewriter {
-    from { width: 0; }
-    to   { width: 14ch; }
-  }
-
   @keyframes blink {
     0%, 100% { opacity: 1; }
     50%       { opacity: 0; }
@@ -205,53 +200,6 @@
     max-width: 480px;
     margin: 0 auto 3rem;
     animation: fadeSlideUp .8s ease .3s both;
-  }
-
-  .hero__typewriter {
-    font-family: var(--font-mono);
-    font-size: .95rem;
-    color: var(--orange-light);
-    overflow: hidden;
-    white-space: nowrap;
-    display: inline-block;
-    width: 0;
-    border-right: 2px solid var(--orange);
-    animation:
-      typewriter 1.8s steps(14, end) .9s both,
-      blink .75s step-end .9s 3;
-  }
-
-  .hero__scroll {
-    position: absolute;
-    bottom: 2.5rem;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: .5rem;
-    color: rgba(255,255,255,.35);
-    font-size: .7rem;
-    letter-spacing: .12em;
-    text-transform: uppercase;
-    font-family: var(--font-mono);
-    animation: fadeSlideUp 1s ease 1.4s both;
-  }
-
-  .hero__scroll-line {
-    width: 1px;
-    height: 48px;
-    background: rgba(255,255,255,.2);
-    position: relative;
-    overflow: hidden;
-  }
-  .hero__scroll-line::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: var(--orange);
-    animation: drawLine 1.2s ease 1.8s both,
-               fadeSlideUp 2s ease 1s infinite;
   }
 
   /* ─────────────────────────
