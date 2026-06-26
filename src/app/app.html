@@ -1,7 +1,3 @@
-<app-nav-menu  [cartOpen]="cartOpen" (cartDisplayToggle)="cartOpenToggle()"></app-nav-menu>
-    <main>
-        <app-yerba-list />
-        <app-cart-yerba [style]="{ 'display': cartOpen ? 'block' : 'none' }"/>
-    </main>
+<app-nav-menu ></app-nav-menu>
+        <router-outlet/>
 <app-footer-yerba />
-        <router-outlet />

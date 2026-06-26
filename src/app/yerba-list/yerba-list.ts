@@ -16,7 +16,7 @@ import { YerbaDataService } from '../service-yerba-data/yerba-data-service';
   }
 })
 export class YerbaList implements AfterViewInit {
-  
+
   yerbas: Yerba[] = [];
   constructor(private cartService: YerbaCartService, private yerbaDataService: YerbaDataService) { }
 
