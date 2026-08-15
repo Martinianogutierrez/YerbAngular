@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
+import { RouterLink } from '@angular/router';
 import { YerbaCartService } from '../service-yerba-cart/yerba-cart-service';
 import { Yerba } from '../yerba-list/Yerba';
 
 @Component({
   selector: 'app-nav-menu',
   standalone: true,
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './nav-menu.html',
   styleUrl: './nav-menu.scss',
 })
